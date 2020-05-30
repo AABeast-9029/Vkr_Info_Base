@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище UHV_DBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cabinets">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EducBuild" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cabinet" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Items">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvNumb" Type="nvarchar" MaxLength="50" />
+    <Property Name="ItemName" Type="nvarchar" MaxLength="50" />
+    <Property Name="NomenkNumb" Type="nvarchar" MaxLength="50" />
+    <Property Name="ItemNumb" Type="nvarchar" MaxLength="50" />
+    <Property Name="ItemPrice" Type="money" />
+    <Property Name="ItemYear" Type="date" />
+    <Property Name="ItemPlace" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cabinets_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="WrittenOffItems">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvNumb" Type="nvarchar" MaxLength="50" />
+    <Property Name="ItemName" Type="nvarchar" MaxLength="50" />
+    <Property Name="NomenkNumb" Type="nvarchar" MaxLength="50" />
+    <Property Name="ItemNumb" Type="nvarchar" MaxLength="50" />
+    <Property Name="ItemPrice" Type="money" />
+    <Property Name="ItemYear" Type="date" />
+    <Property Name="ItemPlace" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Items_ToTable_1">
+    <End Role="Cabinets" Type="Self.Cabinets" Multiplicity="0..1" />
+    <End Role="Items" Type="Self.Items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cabinets">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Items">
+        <PropertyRef Name="Cabinets_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище UHV_DBModelContainer">
+    <EntitySet Name="Cabinets" EntityType="Self.Cabinets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WrittenOffItems" EntityType="Self.WrittenOffItems" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Items_ToTable_1" Association="Self.FK_Items_ToTable_1">
+      <End Role="Cabinets" EntitySet="Cabinets" />
+      <End Role="Items" EntitySet="Items" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

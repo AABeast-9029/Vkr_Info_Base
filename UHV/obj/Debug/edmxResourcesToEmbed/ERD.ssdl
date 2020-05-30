@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище UHV_DBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cabinets">
+    <Key>
+      <PropertyRef Name="Id_Cabinets" />
+    </Key>
+    <Property Name="Id_Cabinets" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cabinet" Type="nvarchar" MaxLength="50" />
+    <Property Name="EducBuild_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="EducBuilds">
+    <Key>
+      <PropertyRef Name="Id_EducBuilds" />
+    </Key>
+    <Property Name="Id_EducBuilds" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EducBuild" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Items">
+    <Key>
+      <PropertyRef Name="Id_Items" />
+    </Key>
+    <Property Name="Id_Items" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvNumb" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ItemName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NomenkNumb" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ItemNumb" Type="int" Nullable="false" />
+    <Property Name="ItemPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ItemYear" Type="int" Nullable="false" />
+    <Property Name="ItemArrDate" Type="date" Nullable="false" />
+    <Property Name="Cabinets_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WrittenOffItems">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvNumb" Type="nvarchar" MaxLength="50" />
+    <Property Name="ItemName" Type="nvarchar" MaxLength="50" />
+    <Property Name="NomenkNumb" Type="nvarchar" MaxLength="50" />
+    <Property Name="ItemNumb" Type="int" />
+    <Property Name="ItemPrice" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ItemYear" Type="int" />
+    <Property Name="ItemArrDate" Type="date" />
+    <Property Name="WrittenCabinet_Id" Type="int" />
+    <Property Name="WrittReason" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Cabinets_EducBuilds">
+    <End Role="EducBuilds" Type="Self.EducBuilds" Multiplicity="0..1" />
+    <End Role="Cabinets" Type="Self.Cabinets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EducBuilds">
+        <PropertyRef Name="Id_EducBuilds" />
+      </Principal>
+      <Dependent Role="Cabinets">
+        <PropertyRef Name="EducBuild_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Items_ToTable_1">
+    <End Role="Cabinets" Type="Self.Cabinets" Multiplicity="1" />
+    <End Role="Items" Type="Self.Items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cabinets">
+        <PropertyRef Name="Id_Cabinets" />
+      </Principal>
+      <Dependent Role="Items">
+        <PropertyRef Name="Cabinets_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WrittenOffItems_Cabinets">
+    <End Role="Cabinets" Type="Self.Cabinets" Multiplicity="0..1" />
+    <End Role="WrittenOffItems" Type="Self.WrittenOffItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cabinets">
+        <PropertyRef Name="Id_Cabinets" />
+      </Principal>
+      <Dependent Role="WrittenOffItems">
+        <PropertyRef Name="WrittenCabinet_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище UHV_DBModelContainer">
+    <EntitySet Name="Cabinets" EntityType="Self.Cabinets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EducBuilds" EntityType="Self.EducBuilds" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WrittenOffItems" EntityType="Self.WrittenOffItems" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Cabinets_EducBuilds" Association="Self.FK_Cabinets_EducBuilds">
+      <End Role="EducBuilds" EntitySet="EducBuilds" />
+      <End Role="Cabinets" EntitySet="Cabinets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Items_ToTable_1" Association="Self.FK_Items_ToTable_1">
+      <End Role="Cabinets" EntitySet="Cabinets" />
+      <End Role="Items" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WrittenOffItems_Cabinets" Association="Self.FK_WrittenOffItems_Cabinets">
+      <End Role="Cabinets" EntitySet="Cabinets" />
+      <End Role="WrittenOffItems" EntitySet="WrittenOffItems" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

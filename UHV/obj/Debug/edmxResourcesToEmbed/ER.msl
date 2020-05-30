@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище UHV_DBModelContainer" CdmEntityContainer="UHV_DBEntities3">
+    <EntitySetMapping Name="Cabinets">
+      <EntityTypeMapping TypeName="UHV_DBModel.Cabinets">
+        <MappingFragment StoreEntitySet="Cabinets">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EducBuild" ColumnName="EducBuild" />
+          <ScalarProperty Name="Cabinet" ColumnName="Cabinet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="UHV_DBModel.Items">
+        <MappingFragment StoreEntitySet="Items">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InvNumb" ColumnName="InvNumb" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="NomenkNumb" ColumnName="NomenkNumb" />
+          <ScalarProperty Name="ItemNumb" ColumnName="ItemNumb" />
+          <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
+          <ScalarProperty Name="ItemYear" ColumnName="ItemYear" />
+          <ScalarProperty Name="ItemPlace" ColumnName="ItemPlace" />
+          <ScalarProperty Name="Cabinets_Id" ColumnName="Cabinets_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WrittenOffItems">
+      <EntityTypeMapping TypeName="UHV_DBModel.WrittenOffItems">
+        <MappingFragment StoreEntitySet="WrittenOffItems">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InvNumb" ColumnName="InvNumb" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="NomenkNumb" ColumnName="NomenkNumb" />
+          <ScalarProperty Name="ItemNumb" ColumnName="ItemNumb" />
+          <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
+          <ScalarProperty Name="ItemYear" ColumnName="ItemYear" />
+          <ScalarProperty Name="ItemPlace" ColumnName="ItemPlace" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

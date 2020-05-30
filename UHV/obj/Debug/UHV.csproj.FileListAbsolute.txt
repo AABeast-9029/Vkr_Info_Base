@@ -1,0 +1,93 @@
+C:\Users\7sot\source\repos\UHV\UHV\bin\Debug\UHV.exe.config
+C:\Users\7sot\source\repos\UHV\UHV\bin\Debug\UHV.exe
+C:\Users\7sot\source\repos\UHV\UHV\bin\Debug\UHV.pdb
+C:\Users\7sot\source\repos\UHV\UHV\obj\Debug\UHV.csprojAssemblyReference.cache
+C:\Users\7sot\source\repos\UHV\UHV\obj\Debug\UHV.WorkWithData.resources
+C:\Users\7sot\source\repos\UHV\UHV\obj\Debug\UHV.Properties.Resources.resources
+C:\Users\7sot\source\repos\UHV\UHV\obj\Debug\UHV.csproj.GenerateResource.cache
+C:\Users\7sot\source\repos\UHV\UHV\obj\Debug\UHV.csproj.CoreCompileInputs.cache
+C:\Users\7sot\source\repos\UHV\UHV\obj\Debug\UHV.exe
+C:\Users\7sot\source\repos\UHV\UHV\obj\Debug\UHV.pdb
+C:\Users\7sot\source\repos\UHV\UHV\obj\Debug\UHV.AddItem.resources
+C:\Users\7sot\source\repos\UHV\UHV\bin\Debug\EntityFramework.dll
+C:\Users\7sot\source\repos\UHV\UHV\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\7sot\source\repos\UHV\UHV\bin\Debug\EntityFramework.xml
+C:\Users\7sot\source\repos\UHV\UHV\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\7sot\source\repos\UHV\UHV\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\7sot\source\repos\UHV\UHV\obj\Debug\UHV.csproj.CopyComplete
+C:\Users\Alexander\Google Диск\Диплом\UHV\UHV\bin\Debug\UHV.exe.config
+C:\Users\Alexander\Google Диск\Диплом\UHV\UHV\bin\Debug\UHV.exe
+C:\Users\Alexander\Google Диск\Диплом\UHV\UHV\bin\Debug\UHV.pdb
+C:\Users\Alexander\Google Диск\Диплом\UHV\UHV\bin\Debug\EntityFramework.dll
+C:\Users\Alexander\Google Диск\Диплом\UHV\UHV\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Alexander\Google Диск\Диплом\UHV\UHV\bin\Debug\EntityFramework.xml
+C:\Users\Alexander\Google Диск\Диплом\UHV\UHV\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Alexander\Google Диск\Диплом\UHV\UHV\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\Alexander\Google Диск\Диплом\UHV\UHV\obj\Debug\UHV.csprojAssemblyReference.cache
+C:\Users\Alexander\Google Диск\Диплом\UHV\UHV\obj\Debug\UHV.AddItem.resources
+C:\Users\Alexander\Google Диск\Диплом\UHV\UHV\obj\Debug\UHV.WorkWithData.resources
+C:\Users\Alexander\Google Диск\Диплом\UHV\UHV\obj\Debug\UHV.Properties.Resources.resources
+C:\Users\Alexander\Google Диск\Диплом\UHV\UHV\obj\Debug\UHV.csproj.GenerateResource.cache
+C:\Users\Alexander\Google Диск\Диплом\UHV\UHV\obj\Debug\UHV.csproj.CoreCompileInputs.cache
+C:\Users\Alexander\Google Диск\Диплом\UHV\UHV\obj\Debug\UHV.csproj.CopyComplete
+C:\Users\Alexander\Google Диск\Диплом\UHV\UHV\obj\Debug\UHV.exe
+C:\Users\Alexander\Google Диск\Диплом\UHV\UHV\obj\Debug\UHV.pdb
+C:\Users\Alexander\Desktop\UHV\UHV\bin\Debug\UHV.exe.config
+C:\Users\Alexander\Desktop\UHV\UHV\bin\Debug\UHV.exe
+C:\Users\Alexander\Desktop\UHV\UHV\bin\Debug\UHV.pdb
+C:\Users\Alexander\Desktop\UHV\UHV\bin\Debug\EntityFramework.dll
+C:\Users\Alexander\Desktop\UHV\UHV\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Alexander\Desktop\UHV\UHV\bin\Debug\EntityFramework.xml
+C:\Users\Alexander\Desktop\UHV\UHV\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Alexander\Desktop\UHV\UHV\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\Alexander\Desktop\UHV\UHV\obj\Debug\UHV.csprojAssemblyReference.cache
+C:\Users\Alexander\Desktop\UHV\UHV\obj\Debug\UHV.AddItem.resources
+C:\Users\Alexander\Desktop\UHV\UHV\obj\Debug\UHV.WorkWithData.resources
+C:\Users\Alexander\Desktop\UHV\UHV\obj\Debug\UHV.Properties.Resources.resources
+C:\Users\Alexander\Desktop\UHV\UHV\obj\Debug\UHV.csproj.GenerateResource.cache
+C:\Users\Alexander\Desktop\UHV\UHV\obj\Debug\UHV.csproj.CoreCompileInputs.cache
+C:\Users\Alexander\Desktop\UHV\UHV\obj\Debug\UHV.csproj.CopyComplete
+C:\Users\Alexander\Desktop\UHV\UHV\obj\Debug\UHV.exe
+C:\Users\Alexander\Desktop\UHV\UHV\obj\Debug\UHV.pdb
+C:\Users\7sot\Desktop\Project\UHV\bin\Debug\UHV.exe.config
+C:\Users\7sot\Desktop\Project\UHV\bin\Debug\UHV.exe
+C:\Users\7sot\Desktop\Project\UHV\bin\Debug\UHV.pdb
+C:\Users\7sot\Desktop\Project\UHV\bin\Debug\EntityFramework.dll
+C:\Users\7sot\Desktop\Project\UHV\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\7sot\Desktop\Project\UHV\bin\Debug\EntityFramework.xml
+C:\Users\7sot\Desktop\Project\UHV\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\7sot\Desktop\Project\UHV\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\7sot\Desktop\Project\UHV\obj\Debug\UHV.csprojAssemblyReference.cache
+C:\Users\7sot\Desktop\Project\UHV\obj\Debug\UHV.AddItem.resources
+C:\Users\7sot\Desktop\Project\UHV\obj\Debug\UHV.WorkWithData.resources
+C:\Users\7sot\Desktop\Project\UHV\obj\Debug\UHV.Properties.Resources.resources
+C:\Users\7sot\Desktop\Project\UHV\obj\Debug\UHV.csproj.GenerateResource.cache
+C:\Users\7sot\Desktop\Project\UHV\obj\Debug\UHV.csproj.CoreCompileInputs.cache
+C:\Users\7sot\Desktop\Project\UHV\obj\Debug\UHV.csproj.CopyComplete
+C:\Users\7sot\Desktop\Project\UHV\obj\Debug\UHV.exe
+C:\Users\7sot\Desktop\Project\UHV\obj\Debug\UHV.pdb
+C:\Users\7sot\Desktop\Project\UHV\bin\Debug\UHV_DB.mdf
+C:\Users\7sot\Desktop\Project\UHV\bin\Debug\UHV_DB_log.ldf
+C:\Users\7sot\Desktop\Project\UHV\obj\Debug\UHV.MessageBoxDel.resources
+C:\Users\7sot\Desktop\Project\UHV\obj\Debug\UHV.Storage.resources
+E:\Project\UHV\obj\Debug\UHV.csprojAssemblyReference.cache
+E:\Project\UHV\obj\Debug\UHV.AddItem.resources
+E:\Project\UHV\obj\Debug\UHV.MessageBoxDel.resources
+E:\Project\UHV\obj\Debug\UHV.Storage.resources
+E:\Project\UHV\obj\Debug\UHV.WorkWithData.resources
+E:\Project\UHV\obj\Debug\UHV.Properties.Resources.resources
+E:\Project\UHV\obj\Debug\UHV.csproj.GenerateResource.cache
+E:\Project\UHV\obj\Debug\UHV.csproj.CoreCompileInputs.cache
+E:\Project\UHV\obj\Debug\UHV.exe
+E:\Project\UHV\obj\Debug\UHV.pdb
+E:\Project\UHV\bin\Debug\UHV_DB.mdf
+E:\Project\UHV\bin\Debug\UHV_DB_log.ldf
+E:\Project\UHV\bin\Debug\UHV.exe.config
+E:\Project\UHV\bin\Debug\UHV.exe
+E:\Project\UHV\bin\Debug\UHV.pdb
+E:\Project\UHV\bin\Debug\EntityFramework.dll
+E:\Project\UHV\bin\Debug\EntityFramework.SqlServer.dll
+E:\Project\UHV\bin\Debug\EntityFramework.xml
+E:\Project\UHV\bin\Debug\EntityFramework.SqlServer.xml
+E:\Project\UHV\bin\Debug\ru\EntityFramework.resources.dll
+E:\Project\UHV\obj\Debug\UHV.csproj.CopyComplete

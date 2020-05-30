@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UHV_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cabinets">
+    <Key>
+      <PropertyRef Name="Id_Cabinets" />
+    </Key>
+    <Property Name="Id_Cabinets" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cabinet" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EducBuild_Id" Type="Int32" />
+    <NavigationProperty Name="EducBuilds" Relationship="Self.FK_Cabinets_EducBuilds" FromRole="Cabinets" ToRole="EducBuilds" />
+    <NavigationProperty Name="Items" Relationship="Self.FK_Items_ToTable_1" FromRole="Cabinets" ToRole="Items" />
+    <NavigationProperty Name="WrittenOffItems" Relationship="Self.FK_WrittenOffItems_Cabinets" FromRole="Cabinets" ToRole="WrittenOffItems" />
+  </EntityType>
+  <EntityType Name="EducBuilds">
+    <Key>
+      <PropertyRef Name="Id_EducBuilds" />
+    </Key>
+    <Property Name="Id_EducBuilds" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EducBuild" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Cabinets" Relationship="Self.FK_Cabinets_EducBuilds" FromRole="EducBuilds" ToRole="Cabinets" />
+  </EntityType>
+  <EntityType Name="Items">
+    <Key>
+      <PropertyRef Name="Id_Items" />
+    </Key>
+    <Property Name="Id_Items" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvNumb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NomenkNumb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ItemNumb" Type="Int32" Nullable="false" />
+    <Property Name="ItemPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ItemYear" Type="Int32" Nullable="false" />
+    <Property Name="ItemArrDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Cabinets_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cabinets" Relationship="Self.FK_Items_ToTable_1" FromRole="Items" ToRole="Cabinets" />
+  </EntityType>
+  <EntityType Name="WrittenOffItems">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvNumb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NomenkNumb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ItemNumb" Type="Int32" />
+    <Property Name="ItemPrice" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ItemYear" Type="Int32" />
+    <Property Name="ItemArrDate" Type="DateTime" Precision="0" />
+    <Property Name="WrittenCabinet_Id" Type="Int32" />
+    <Property Name="WrittReason" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Cabinets" Relationship="Self.FK_WrittenOffItems_Cabinets" FromRole="WrittenOffItems" ToRole="Cabinets" />
+  </EntityType>
+  <Association Name="FK_Cabinets_EducBuilds">
+    <End Role="EducBuilds" Type="Self.EducBuilds" Multiplicity="0..1" />
+    <End Role="Cabinets" Type="Self.Cabinets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EducBuilds">
+        <PropertyRef Name="Id_EducBuilds" />
+      </Principal>
+      <Dependent Role="Cabinets">
+        <PropertyRef Name="EducBuild_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Items_ToTable_1">
+    <End Role="Cabinets" Type="Self.Cabinets" Multiplicity="1" />
+    <End Role="Items" Type="Self.Items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cabinets">
+        <PropertyRef Name="Id_Cabinets" />
+      </Principal>
+      <Dependent Role="Items">
+        <PropertyRef Name="Cabinets_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WrittenOffItems_Cabinets">
+    <End Role="Cabinets" Type="Self.Cabinets" Multiplicity="0..1" />
+    <End Role="WrittenOffItems" Type="Self.WrittenOffItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cabinets">
+        <PropertyRef Name="Id_Cabinets" />
+      </Principal>
+      <Dependent Role="WrittenOffItems">
+        <PropertyRef Name="WrittenCabinet_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="UHV_DBEntities6" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cabinets" EntityType="Self.Cabinets" />
+    <EntitySet Name="EducBuilds" EntityType="Self.EducBuilds" />
+    <EntitySet Name="Items" EntityType="Self.Items" />
+    <EntitySet Name="WrittenOffItems" EntityType="Self.WrittenOffItems" />
+    <AssociationSet Name="FK_Cabinets_EducBuilds" Association="Self.FK_Cabinets_EducBuilds">
+      <End Role="EducBuilds" EntitySet="EducBuilds" />
+      <End Role="Cabinets" EntitySet="Cabinets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Items_ToTable_1" Association="Self.FK_Items_ToTable_1">
+      <End Role="Cabinets" EntitySet="Cabinets" />
+      <End Role="Items" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WrittenOffItems_Cabinets" Association="Self.FK_WrittenOffItems_Cabinets">
+      <End Role="Cabinets" EntitySet="Cabinets" />
+      <End Role="WrittenOffItems" EntitySet="WrittenOffItems" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
