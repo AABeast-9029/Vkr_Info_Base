@@ -9,16 +9,57 @@ namespace UHV
     {
         public string SelectedRow = " ";
         public bool haveArt;
+        string idReason = " ";
 
         public MessageBoxDel()
         {
             InitializeComponent();
             System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
+            FillReason();
+        }
+
+        private void FillReason()
+        {
+            string Query = "SELECT * From WrittReason";
+            using (var cn = new SqlConnection(Connection.Connect))
+            {
+                cn.Open();
+                DataTable dt = new DataTable();
+                try
+                {
+                    SqlCommand cmd = new SqlCommand(Query, cn);
+                    SqlDataReader myReader = cmd.ExecuteReader();
+                    dt.Load(myReader);
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine(e.ToString());
+                    return;
+                }
+                cb_Reason.DataSource = dt;
+                cb_Reason.ValueMember = "Id_Reason";
+                cb_Reason.DisplayMember = "NameReason";
+                cb_Reason.SelectedIndex = -1;
+            }
+        }
+
+        public string FindIdReason()
+        {
+            using (var cn = new SqlConnection(Connection.Connect))
+            {
+                cn.Open();
+                SqlCommand sql = new SqlCommand();
+                string Query = "SELECT Id_Reason From WrittReason Where NameReason = N'" + cb_Reason.Text + "'";
+                sql.CommandText = Query;
+                sql.Connection = cn;
+                idReason = sql.ExecuteScalar().ToString();
+            }
+            return idReason;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(num_CountItems.Value) != 0 || rtb_ReazonDel.Text == " ")
+            if (Convert.ToInt32(num_CountItems.Value) != 0 || cb_Reason.Text == " ")
             {
                 string WOI_InvNumb = " ", WOI_ItemName = " ", WOI_NomenkNumb = " ", WOI_ItemArrDate = " ";
                 int WOI_ItemNumb = 0, WOI_ItemPlace = 0, WOI_ItemYear = 0;
@@ -61,8 +102,8 @@ namespace UHV
                             }
                             else
                             {
-                                string Query1 = "INSERT INTO WrittenOffItems (InvNumb, ItemName, NomenkNumb, ItemNumb, ItemPrice, ItemYear, ItemArrdate, WrittenCabinet_Id, WrittReason) " +
-                                        "VALUES (N'" + WOI_InvNumb + "', N'" + WOI_ItemName + "', N'" + WOI_NomenkNumb + "', '" + num_CountItems.Value + "', '" + WOI_ItemPrice + "', '" + WOI_ItemYear + "', N'" + WOI_ItemArrDate + "', N'" + WOI_ItemPlace + "', N'" + rtb_ReazonDel.Text + "')";
+                                string Query1 = "INSERT INTO WrittenOffItems (InvNumb, ItemName, NomenkNumb, ItemNumb, ItemPrice, ItemYear, ItemArrdate, WrittenCabinet_Id, WrittReason_Id) " +
+                                        "VALUES (N'" + WOI_InvNumb + "', N'" + WOI_ItemName + "', N'" + WOI_NomenkNumb + "', '" + num_CountItems.Value + "', '" + WOI_ItemPrice + "', '" + WOI_ItemYear + "', N'" + WOI_ItemArrDate + "', N'" + WOI_ItemPlace + "', N'" + idReason + "')";
                                 using (var cn = new SqlConnection(Connection.Connect))
                                 {
                                     cn.Open();
@@ -88,8 +129,8 @@ namespace UHV
                         }
                         else
                         {
-                            string Query1 = "INSERT INTO WrittenOffItems (InvNumb, ItemName, NomenkNumb, ItemNumb, ItemPrice, ItemYear, ItemArrDate, WrittenCabinet_Id, WrittReason) " +
-                                       "VALUES (N'" + WOI_InvNumb + "', N'" + WOI_ItemName + "', N'" + WOI_NomenkNumb + "', '" + num_CountItems.Value + "', '" + WOI_ItemPrice + "', N'" + WOI_ItemArrDate + "', '" + WOI_ItemYear + "', N'" + WOI_ItemPlace + "', N'" + rtb_ReazonDel.Text + "')";
+                            string Query1 = "INSERT INTO WrittenOffItems (InvNumb, ItemName, NomenkNumb, ItemNumb, ItemPrice, ItemYear, ItemArrDate, WrittenCabinet_Id, WrittReason_Id) " +
+                                       "VALUES (N'" + WOI_InvNumb + "', N'" + WOI_ItemName + "', N'" + WOI_NomenkNumb + "', '" + num_CountItems.Value + "', '" + WOI_ItemPrice + "', N'" + WOI_ItemArrDate + "', '" + WOI_ItemYear + "', N'" + WOI_ItemPlace + "', N'" + idReason + "')";
                             using (var cn = new SqlConnection(Connection.Connect))
                             {
                                 cn.Open();
@@ -128,6 +169,11 @@ namespace UHV
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void cb_Reason_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            FindIdReason();
         }
     }
 }

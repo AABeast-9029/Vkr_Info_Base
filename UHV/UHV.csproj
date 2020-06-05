@@ -74,38 +74,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCategory.Designer.cs">
+      <DependentUpon>AddCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddItem.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddItem.Designer.cs">
       <DependentUpon>AddItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cabinets.cs">
-      <DependentUpon>ERD.tt</DependentUpon>
-    </Compile>
     <Compile Include="Connection.cs" />
     <Compile Include="DGVPrinter.cs" />
-    <Compile Include="EducBuilds.cs">
-      <DependentUpon>ERD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ERD.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ERD.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ERD.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ERD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ERD.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ERD.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Items.cs">
-      <DependentUpon>ERD.tt</DependentUpon>
-    </Compile>
     <Compile Include="MessageBoxDel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,9 +108,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WrittenOffItems.cs">
-      <DependentUpon>ERD.tt</DependentUpon>
-    </Compile>
+    <EmbeddedResource Include="AddCategory.resx">
+      <DependentUpon>AddCategory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddItem.resx">
       <DependentUpon>AddItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,13 +132,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="ERD.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ERD.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="ERD.edmx.diagram">
-      <DependentUpon>ERD.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -175,16 +150,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ERD.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ERD.edmx</DependentUpon>
-      <LastGenOutput>ERD.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ERD.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ERD.edmx</DependentUpon>
-      <LastGenOutput>ERD.cs</LastGenOutput>
-    </Content>
     <Content Include="UHV_DB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

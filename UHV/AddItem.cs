@@ -9,7 +9,6 @@ namespace UHV
     {
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataSet ds = new DataSet();
-
         public bool edit = false;
         public string old_id;
         string IdCabinet;
@@ -76,7 +75,7 @@ namespace UHV
             string categoryCode = "";
             bool haveCategory = false;
 
-            string Query = "SELECT CategoryNumbers FROM Categories WHERE CategoryName = N'" + tb_ItemName.Text + "'";
+            string Query = "SELECT CategoryName FROM Categories WHERE CategoryName = N'" + tb_ItemName.Text + "'";
             using (var cn = new SqlConnection(Connection.Connect))
             {
                 cn.Open();
@@ -84,16 +83,38 @@ namespace UHV
                 SqlDataReader reader = sql.ExecuteReader();
                 if (reader.HasRows)
                 {
-                    reader.Read();
-                    getedNumber = reader.GetString(0);
-                    splitedNumber = getedNumber.Split('-');
-                    MessageBox.Show(splitedNumber[0] + " " + splitedNumber[1]);
                     haveCategory = true;
+                }
+                else
+                {
+                    DialogResult dr = MessageBox.Show("Такой категории нету в информационной системе!\n" +
+                            "Хотите добавить эту категорию?", "", MessageBoxButtons.YesNo);
+                    if (dr == DialogResult.Yes)
+                    {
+                        AddCategory addcategory = new AddCategory();
+                        addcategory.tbCategoryName.Text = tb_ItemName.Text;
+                        addcategory.ShowDialog();
+                    }
                 }
             }
 
             if (haveCategory != false)
             {
+                string QuerySplit = "SELECT CategoryNumbers FROM Categories WHERE CategoryName = N'" + tb_ItemName.Text + "'";
+                using (var cn = new SqlConnection(Connection.Connect))
+                {
+                    cn.Open();
+                    SqlCommand sql = new SqlCommand(QuerySplit, cn);
+                    SqlDataReader reader = sql.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        reader.Read();
+                        getedNumber = reader.GetString(0);
+                        splitedNumber = getedNumber.Split(' ');
+                        MessageBox.Show(splitedNumber[0] + " " + splitedNumber[1]);
+                    }
+                }
+            
                 if (!edit)
                 {
                     if ((int)num_ItemNumb.Value == 1)
@@ -212,10 +233,6 @@ namespace UHV
                         MessageBox.Show("Не все поля заполнены!");
                     }
                 }
-            }
-            else
-            {
-                MessageBox.Show("Такой категории нету в информационной системе!");
             }
         }
 

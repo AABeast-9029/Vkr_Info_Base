@@ -12,9 +12,7 @@ namespace UHV
     {
         public bool haveArt;
         int CountDelItems;
-
         public int CountDelItem { get => CountDelItems; set => CountDelItems = value; }
-
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataSet ds = new DataSet();
 
@@ -91,8 +89,9 @@ namespace UHV
 
         private void TableWrittItems()
         {
-            string Query = "SELECT Id, InvNumb, ItemName, NomenkNumb, ItemNumb, ItemPrice, ItemYear, ItemArrDate, C.Cabinet, WrittReason FROM WrittenOffItems W" +
-                "Inner join Cabinets C on C.Id_Cabinets = WrittenCabinet_Id ";
+            string Query = "SELECT Id, InvNumb, ItemName, NomenkNumb, ItemNumb, ItemPrice, ItemYear, ItemArrDate, C.Cabinet, R.NameReason FROM WrittenOffItems W" +
+                "Inner join Cabinets C on C.Id_Cabinets = WrittenCabinet_Id " +
+                "Inner join WrittReason R on R.Id_Reason = WrittReason_Id ";
 
             using (var cn = new SqlConnection(Connection.Connect))
             {
@@ -104,6 +103,7 @@ namespace UHV
                 dgvData.DataSource = ds.Tables[0];
                 dgvData.Columns["Id"].Visible = false;
                 dgvData.Columns["Id"].ReadOnly = true;
+                dgvData.Columns["InvNumb"].ReadOnly = true;
                 dgvData.Columns["ItemName"].ReadOnly = true;
                 dgvData.Columns["NomenkNumb"].ReadOnly = true;
                 dgvData.Columns["ItemNumb"].ReadOnly = true;
@@ -111,25 +111,27 @@ namespace UHV
                 dgvData.Columns["ItemYear"].ReadOnly = true;
                 dgvData.Columns["ItemArrDate"].ReadOnly = true;
                 dgvData.Columns["Cabinet"].ReadOnly = true;
-                dgvData.Columns["WrittReason"].ReadOnly = true;
+                dgvData.Columns["NameReason"].ReadOnly = true;
 
-                dgvData.Columns[1].HeaderText = "Наименование";
-                dgvData.Columns[2].HeaderText = "Номенклатурный номер";
-                dgvData.Columns[3].HeaderText = "Количество";
-                dgvData.Columns[4].HeaderText = "Цена";
-                dgvData.Columns[5].HeaderText = "Год выпуска";
-                dgvData.Columns[6].HeaderText = "Дата прибытия";
-                dgvData.Columns[7].HeaderText = "Аудитория";
-                dgvData.Columns[8].HeaderText = "Причина списания";
+                dgvData.Columns[1].HeaderText = "Инвентарный номер";
+                dgvData.Columns[2].HeaderText = "Наименование";
+                dgvData.Columns[3].HeaderText = "Номенклатурный номер";
+                dgvData.Columns[4].HeaderText = "Количество";
+                dgvData.Columns[5].HeaderText = "Цена";
+                dgvData.Columns[6].HeaderText = "Год выпуска";
+                dgvData.Columns[7].HeaderText = "Дата прибытия";
+                dgvData.Columns[8].HeaderText = "Аудитория";
+                dgvData.Columns[9].HeaderText = "Причина списания";
 
-                dgvData.Columns[1].Width = 90;
-                dgvData.Columns[2].Width = 120;
-                dgvData.Columns[3].Width = 110;
-                dgvData.Columns[4].Width = 80;
-                dgvData.Columns[5].Width = 60;
-                dgvData.Columns[6].Width = 80;
-                dgvData.Columns[7].Width = 65;
-                dgvData.Columns[8].Width = 110;
+                dgvData.Columns[1].Width = 80;
+                dgvData.Columns[2].Width = 90;
+                dgvData.Columns[3].Width = 120;
+                dgvData.Columns[4].Width = 110;
+                dgvData.Columns[5].Width = 80;
+                dgvData.Columns[6].Width = 60;
+                dgvData.Columns[7].Width = 80;
+                dgvData.Columns[8].Width = 65;
+                dgvData.Columns[9].Width = 110;
 
 
                 DataGridViewCellStyle style = dgvData.ColumnHeadersDefaultCellStyle;
@@ -253,16 +255,16 @@ namespace UHV
                 l_Numb.Text = "Единиц предметов: " + sql.ExecuteScalar().ToString() + " шт";
             }
 
-            //using (var cn = new SqlConnection(Connection.Connect))
-            //{
-            //    cn.Open();
-            //    SqlCommand sql = new SqlCommand();
-            //    string Query = "SELECT SUM(ItemPrice) FROM Items";
-            //    sql.CommandText = Query;
-            //    sql.Connection = cn;
-            //    decimal ItemTotalPrice = Convert.ToDecimal(sql.ExecuteScalar().ToString());
-            //    l_Price.Text = "На сумму: " + ItemTotalPrice.ToString("C", CultureInfo.CreateSpecificCulture("ru-RU"));
-            //}
+            using (var cn = new SqlConnection(Connection.Connect))
+            {
+                cn.Open();
+                SqlCommand sql = new SqlCommand();
+                string Query = "SELECT SUM(ItemPrice) FROM Items";
+                sql.CommandText = Query;
+                sql.Connection = cn;
+                decimal ItemTotalPrice = Convert.ToDecimal(sql.ExecuteScalar().ToString());
+                l_Price.Text = "На сумму: " + ItemTotalPrice.ToString("C", CultureInfo.CreateSpecificCulture("ru-RU"));
+            }
 
             if (cb_Tables.SelectedIndex == -1)
             {
@@ -276,6 +278,10 @@ namespace UHV
             if (cb_Tables.Text == "Списаные предметы")
             {
                 btn_Filter.Enabled = false;
+            }
+            else
+            {
+                btn_Filter.Enabled = true;
             }
         }
 
